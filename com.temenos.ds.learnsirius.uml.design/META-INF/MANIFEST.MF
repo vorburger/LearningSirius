@@ -7,6 +7,7 @@ Bundle-Activator: com.temenos.ds.learnsirius.uml.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.sirius,
- org.eclipse.sirius.common.acceleo.mtl
+ org.eclipse.sirius.common.acceleo.mtl,
+ org.eclipse.core.resources
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -68,7 +68,7 @@ public interface UmlPackage extends EPackage {
 	int PACKAGE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Classes</b></em>' containment reference.
+	 * The feature id for the '<em><b>Classes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -123,7 +123,7 @@ public interface UmlPackage extends EPackage {
 	int CLASS__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference.
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -132,7 +132,7 @@ public interface UmlPackage extends EPackage {
 	int CLASS__ATTRIBUTES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Associations</b></em>' containment reference.
+	 * The feature id for the '<em><b>Associations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -253,10 +253,10 @@ public interface UmlPackage extends EPackage {
 	EClass getPackage();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.temenos.ds.learnsirius.uml.Package#getClasses <em>Classes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.temenos.ds.learnsirius.uml.Package#getClasses <em>Classes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Classes</em>'.
+	 * @return the meta object for the containment reference list '<em>Classes</em>'.
 	 * @see com.temenos.ds.learnsirius.uml.Package#getClasses()
 	 * @see #getPackage()
 	 * @generated
@@ -296,10 +296,10 @@ public interface UmlPackage extends EPackage {
 	EAttribute getClass_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.temenos.ds.learnsirius.uml.Class#getAttributes <em>Attributes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.temenos.ds.learnsirius.uml.Class#getAttributes <em>Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Attributes</em>'.
+	 * @return the meta object for the containment reference list '<em>Attributes</em>'.
 	 * @see com.temenos.ds.learnsirius.uml.Class#getAttributes()
 	 * @see #getClass_()
 	 * @generated
@@ -307,10 +307,10 @@ public interface UmlPackage extends EPackage {
 	EReference getClass_Attributes();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.temenos.ds.learnsirius.uml.Class#getAssociations <em>Associations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.temenos.ds.learnsirius.uml.Class#getAssociations <em>Associations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Associations</em>'.
+	 * @return the meta object for the containment reference list '<em>Associations</em>'.
 	 * @see com.temenos.ds.learnsirius.uml.Class#getAssociations()
 	 * @see #getClass_()
 	 * @generated
@@ -404,7 +404,7 @@ public interface UmlPackage extends EPackage {
 		EClass PACKAGE = eINSTANCE.getPackage();
 
 		/**
-		 * The meta object literal for the '<em><b>Classes</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Classes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -438,7 +438,7 @@ public interface UmlPackage extends EPackage {
 		EAttribute CLASS__NAME = eINSTANCE.getClass_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -446,7 +446,7 @@ public interface UmlPackage extends EPackage {
 		EReference CLASS__ATTRIBUTES = eINSTANCE.getClass_Attributes();
 
 		/**
-		 * The meta object literal for the '<em><b>Associations</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Associations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

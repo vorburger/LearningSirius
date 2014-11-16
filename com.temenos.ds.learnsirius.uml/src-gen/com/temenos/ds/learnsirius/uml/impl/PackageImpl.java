@@ -4,14 +4,21 @@ package com.temenos.ds.learnsirius.uml.impl;
 
 import com.temenos.ds.learnsirius.uml.UmlPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,14 +36,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class PackageImpl extends MinimalEObjectImpl.Container implements com.temenos.ds.learnsirius.uml.Package {
 	/**
-	 * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference.
+	 * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getClasses()
 	 * @generated
 	 * @ordered
 	 */
-	protected com.temenos.ds.learnsirius.uml.Class classes;
+	protected EList<com.temenos.ds.learnsirius.uml.Class> classes;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -82,42 +89,11 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.tem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public com.temenos.ds.learnsirius.uml.Class getClasses() {
+	public EList<com.temenos.ds.learnsirius.uml.Class> getClasses() {
+		if (classes == null) {
+			classes = new EObjectContainmentEList<com.temenos.ds.learnsirius.uml.Class>(com.temenos.ds.learnsirius.uml.Class.class, this, UmlPackage.PACKAGE__CLASSES);
+		}
 		return classes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetClasses(com.temenos.ds.learnsirius.uml.Class newClasses, NotificationChain msgs) {
-		com.temenos.ds.learnsirius.uml.Class oldClasses = classes;
-		classes = newClasses;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UmlPackage.PACKAGE__CLASSES, oldClasses, newClasses);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClasses(com.temenos.ds.learnsirius.uml.Class newClasses) {
-		if (newClasses != classes) {
-			NotificationChain msgs = null;
-			if (classes != null)
-				msgs = ((InternalEObject)classes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UmlPackage.PACKAGE__CLASSES, null, msgs);
-			if (newClasses != null)
-				msgs = ((InternalEObject)newClasses).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UmlPackage.PACKAGE__CLASSES, null, msgs);
-			msgs = basicSetClasses(newClasses, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UmlPackage.PACKAGE__CLASSES, newClasses, newClasses));
 	}
 
 	/**
@@ -150,7 +126,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.tem
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case UmlPackage.PACKAGE__CLASSES:
-				return basicSetClasses(null, msgs);
+				return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -176,11 +152,13 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.tem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case UmlPackage.PACKAGE__CLASSES:
-				setClasses((com.temenos.ds.learnsirius.uml.Class)newValue);
+				getClasses().clear();
+				getClasses().addAll((Collection<? extends com.temenos.ds.learnsirius.uml.Class>)newValue);
 				return;
 			case UmlPackage.PACKAGE__NAME:
 				setName((String)newValue);
@@ -198,7 +176,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.tem
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case UmlPackage.PACKAGE__CLASSES:
-				setClasses((com.temenos.ds.learnsirius.uml.Class)null);
+				getClasses().clear();
 				return;
 			case UmlPackage.PACKAGE__NAME:
 				setName(NAME_EDEFAULT);
@@ -216,7 +194,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.tem
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case UmlPackage.PACKAGE__CLASSES:
-				return classes != null;
+				return classes != null && !classes.isEmpty();
 			case UmlPackage.PACKAGE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}

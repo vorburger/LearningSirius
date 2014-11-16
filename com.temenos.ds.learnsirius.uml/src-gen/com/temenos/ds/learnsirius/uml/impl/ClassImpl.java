@@ -6,14 +6,21 @@ import com.temenos.ds.learnsirius.uml.Association;
 import com.temenos.ds.learnsirius.uml.Attribute;
 import com.temenos.ds.learnsirius.uml.UmlPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,24 +59,24 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements com.temen
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference.
+	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAttributes()
 	 * @generated
 	 * @ordered
 	 */
-	protected Attribute attributes;
+	protected EList<Attribute> attributes;
 
 	/**
-	 * The cached value of the '{@link #getAssociations() <em>Associations</em>}' containment reference.
+	 * The cached value of the '{@link #getAssociations() <em>Associations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAssociations()
 	 * @generated
 	 * @ordered
 	 */
-	protected Association associations;
+	protected EList<Association> associations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,7 +123,10 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements com.temen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Attribute getAttributes() {
+	public EList<Attribute> getAttributes() {
+		if (attributes == null) {
+			attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, UmlPackage.CLASS__ATTRIBUTES);
+		}
 		return attributes;
 	}
 
@@ -125,76 +135,11 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements com.temen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAttributes(Attribute newAttributes, NotificationChain msgs) {
-		Attribute oldAttributes = attributes;
-		attributes = newAttributes;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UmlPackage.CLASS__ATTRIBUTES, oldAttributes, newAttributes);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Association> getAssociations() {
+		if (associations == null) {
+			associations = new EObjectContainmentEList<Association>(Association.class, this, UmlPackage.CLASS__ASSOCIATIONS);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAttributes(Attribute newAttributes) {
-		if (newAttributes != attributes) {
-			NotificationChain msgs = null;
-			if (attributes != null)
-				msgs = ((InternalEObject)attributes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UmlPackage.CLASS__ATTRIBUTES, null, msgs);
-			if (newAttributes != null)
-				msgs = ((InternalEObject)newAttributes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UmlPackage.CLASS__ATTRIBUTES, null, msgs);
-			msgs = basicSetAttributes(newAttributes, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UmlPackage.CLASS__ATTRIBUTES, newAttributes, newAttributes));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Association getAssociations() {
 		return associations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAssociations(Association newAssociations, NotificationChain msgs) {
-		Association oldAssociations = associations;
-		associations = newAssociations;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UmlPackage.CLASS__ASSOCIATIONS, oldAssociations, newAssociations);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAssociations(Association newAssociations) {
-		if (newAssociations != associations) {
-			NotificationChain msgs = null;
-			if (associations != null)
-				msgs = ((InternalEObject)associations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UmlPackage.CLASS__ASSOCIATIONS, null, msgs);
-			if (newAssociations != null)
-				msgs = ((InternalEObject)newAssociations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UmlPackage.CLASS__ASSOCIATIONS, null, msgs);
-			msgs = basicSetAssociations(newAssociations, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UmlPackage.CLASS__ASSOCIATIONS, newAssociations, newAssociations));
 	}
 
 	/**
@@ -206,9 +151,9 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements com.temen
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case UmlPackage.CLASS__ATTRIBUTES:
-				return basicSetAttributes(null, msgs);
+				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
 			case UmlPackage.CLASS__ASSOCIATIONS:
-				return basicSetAssociations(null, msgs);
+				return ((InternalEList<?>)getAssociations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -236,6 +181,7 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements com.temen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -243,10 +189,12 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements com.temen
 				setName((String)newValue);
 				return;
 			case UmlPackage.CLASS__ATTRIBUTES:
-				setAttributes((Attribute)newValue);
+				getAttributes().clear();
+				getAttributes().addAll((Collection<? extends Attribute>)newValue);
 				return;
 			case UmlPackage.CLASS__ASSOCIATIONS:
-				setAssociations((Association)newValue);
+				getAssociations().clear();
+				getAssociations().addAll((Collection<? extends Association>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -264,10 +212,10 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements com.temen
 				setName(NAME_EDEFAULT);
 				return;
 			case UmlPackage.CLASS__ATTRIBUTES:
-				setAttributes((Attribute)null);
+				getAttributes().clear();
 				return;
 			case UmlPackage.CLASS__ASSOCIATIONS:
-				setAssociations((Association)null);
+				getAssociations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -284,9 +232,9 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements com.temen
 			case UmlPackage.CLASS__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case UmlPackage.CLASS__ATTRIBUTES:
-				return attributes != null;
+				return attributes != null && !attributes.isEmpty();
 			case UmlPackage.CLASS__ASSOCIATIONS:
-				return associations != null;
+				return associations != null && !associations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

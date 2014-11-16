@@ -1,14 +1,14 @@
 package com.temenos.ds.learnsirius.uml
 
 class Package {
-	contains Class classes
+	contains Class[] classes
 	String name
 }
 
 class Class {
 	String name
-	contains Attribute attributes
-	contains Association associations
+	contains Attribute[] attributes
+	contains Association[] associations
 }
 
 class Attribute {

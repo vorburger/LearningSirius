@@ -2,6 +2,8 @@
  */
 package com.temenos.ds.learnsirius.uml;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -50,55 +52,35 @@ public interface Class extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
+	 * The list contents are of type {@link com.temenos.ds.learnsirius.uml.Attribute}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Attributes</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attributes</em>' containment reference.
-	 * @see #setAttributes(Attribute)
+	 * @return the value of the '<em>Attributes</em>' containment reference list.
 	 * @see com.temenos.ds.learnsirius.uml.UmlPackage#getClass_Attributes()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Attribute getAttributes();
+	EList<Attribute> getAttributes();
 
 	/**
-	 * Sets the value of the '{@link com.temenos.ds.learnsirius.uml.Class#getAttributes <em>Attributes</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Attributes</em>' containment reference.
-	 * @see #getAttributes()
-	 * @generated
-	 */
-	void setAttributes(Attribute value);
-
-	/**
-	 * Returns the value of the '<em><b>Associations</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Associations</b></em>' containment reference list.
+	 * The list contents are of type {@link com.temenos.ds.learnsirius.uml.Association}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Associations</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Associations</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Associations</em>' containment reference.
-	 * @see #setAssociations(Association)
+	 * @return the value of the '<em>Associations</em>' containment reference list.
 	 * @see com.temenos.ds.learnsirius.uml.UmlPackage#getClass_Associations()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Association getAssociations();
-
-	/**
-	 * Sets the value of the '{@link com.temenos.ds.learnsirius.uml.Class#getAssociations <em>Associations</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Associations</em>' containment reference.
-	 * @see #getAssociations()
-	 * @generated
-	 */
-	void setAssociations(Association value);
+	EList<Association> getAssociations();
 
 } // Class

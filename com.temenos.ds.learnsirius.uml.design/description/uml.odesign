@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="uml" version="8.1.0">
   <ownedViewpoints name="uml" label="UML" modelFileExtension="uml">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="package" label="Package" initialisation="true" domainClass="uml.Package" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="package" label="Package" domainClass="uml.Package" enablePopupBars="true">
+      <metamodel href="../../com.temenos.ds.learnsirius.uml/model/uml.ecore#/"/>
       <defaultLayer name="Default">
-        <containerMappings name="class" label="Class" domainClass="uml.Class">
+        <edgeMappings name="edge" semanticCandidatesExpression="[eContents().eContents()/]" sourceMapping="//@ownedViewpoints[name='uml']/@ownedRepresentations[name='package']/@defaultLayer/@containerMappings[name='class']" targetMapping="//@ownedViewpoints[name='uml']/@ownedRepresentations[name='package']/@defaultLayer/@containerMappings[name='class']" targetFinderExpression="feature:refClass" sourceFinderExpression="feature:eContainer" domainClass="uml.Association" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelExpression="feature:name">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="class" label="Class" semanticCandidatesExpression="feature:classes" domainClass="uml.Class">
           <subNodeMappings name="attribute" label="Attribute" semanticCandidatesExpression="feature:eAllContents" domainClass="uml.Attribute">
             <style xsi:type="style:SquareDescription" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -11,6 +20,12 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
         </containerMappings>
       </defaultLayer>
     </ownedRepresentations>
